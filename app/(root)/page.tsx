@@ -1,11 +1,43 @@
-import Container from "@/components/container";
+import HeaderBox from "@/components/header-box";
+import TotalBalanceBox from "@/components/total-balance-box";
 
-export default function Home() {
+const Home = async ({}: SearchParamProps) => {
+  const loggedIn = { firstName: "Abdikarim" };
+
   return (
-    <main className="">
-      <Container className="">
-        <h1 className="text-3xl font-bold">Home Page</h1>
-      </Container>
-    </main>
+    <section className="home">
+      <div className="home-content">
+        <header className="home-header">
+          <HeaderBox
+            type="greeting"
+            title="Welcome"
+            user={loggedIn?.firstName || "Guest"}
+            subtext="Access and manage your account and transactions efficiently."
+          />
+
+          <TotalBalanceBox
+            accounts={[]}
+            totalBanks={1}
+            totalCurrentBalance={1275.25}
+          />
+        </header>
+
+        {/* <RecentTransactions
+          accounts={accountsData}
+          transactions={account?.transactions}
+          appwriteItemId={appwriteItemId}
+          page={currentPage}
+        />
+     
+
+      <RightSidebar
+        user={loggedIn}
+        transactions={account?.transactions}
+        banks={accountsData?.slice(0, 2)}
+      /> */}
+      </div>
+    </section>
   );
-}
+};
+
+export default Home;

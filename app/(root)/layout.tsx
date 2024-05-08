@@ -1,12 +1,14 @@
+import Sidebar from "@/components/sidebar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className="">
-      //Sidebar
+    <main className="flex h-screen w-full font-inter">
+      <Sidebar />
       {children}
-    </div>
+    </main>
   );
 }
