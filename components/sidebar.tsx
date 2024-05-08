@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 // import Footer from "./Footer";
 // import PlaidLink from "./PlaidLink";
 
-const Sidebar = () => {
+const Sidebar = ({ user }: { user: {} }) => {
   const pathname = usePathname();
   // SiderbarProps
   return (
@@ -20,7 +20,7 @@ const Sidebar = () => {
             width={34}
             height={34}
             alt="Horizon logo"
-            className="size-[24px] max-xl:size-14"
+            className="size-[24px] max-xl:size-20 text-slate-200"
           />
           <h1 className="- 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-blue-600 max-xl:hidden">
             Horizon
@@ -48,7 +48,7 @@ const Sidebar = () => {
                   alt={item.label}
                   fill
                   className={cn({
-                    "brightness-[1] invert-0": isActive,
+                    "brightness-[1] invert-0 text-slate-200": isActive,
                   })}
                 />
               </div>
