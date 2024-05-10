@@ -5,12 +5,15 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./footer";
 // import Footer from "./Footer";
 // import PlaidLink from "./PlaidLink";
 
-const Sidebar = ({ user }: { user: {} }) => {
+const Sidebar = ({ user }: SiderbarProps) => {
   const pathname = usePathname();
-  // SiderbarProps
+
+  console.log("user_sidebar: ", user);
+
   return (
     <section className="sidebar- sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between border-r border-slate-700  pt-8 max-md:hidden sm:p-4 xl:p-6 2xl:w-[355px] bg-slate-800 text-slate-100">
       <nav className="flex flex-col gap-4">
@@ -62,7 +65,7 @@ const Sidebar = ({ user }: { user: {} }) => {
         {/* <PlaidLink user={user} /> */}
       </nav>
 
-      {/* <Footer user={user} /> */}
+      <Footer user={user} />
     </section>
   );
 };

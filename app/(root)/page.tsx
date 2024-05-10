@@ -1,9 +1,12 @@
 import HeaderBox from "@/components/header-box";
 import RightSidebar from "@/components/right-sidebar";
 import TotalBalanceBox from "@/components/total-balance-box";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 
 const Home = async ({}: SearchParamProps) => {
-  const loggedIn = { firstName: "Abdikarim", lastname: "Issa" };
+  const user: User = await getLoggedInUser();
+
+  // console.log("user_home: ", user);
 
   return (
     <section className="home- no-scrollbar flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll">
@@ -12,7 +15,7 @@ const Home = async ({}: SearchParamProps) => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn?.firstName || "Guest"}
+            user={user?.firstName || "Guest"}
             subtext="Access and manage your account and transactions efficiently."
           />
 
@@ -31,7 +34,7 @@ const Home = async ({}: SearchParamProps) => {
         />*/}
       </div>
       <RightSidebar
-        user={loggedIn}
+        user={user}
         // transactions={account?.transactions}
         // banks={accountsData?.slice(0, 2)}
       />

@@ -11,7 +11,7 @@ const RightSidebar = ({
   banks = [0, 1],
 }: RightSidebarProps) => {
   const categories: CategoryCount[] = countTransactionCategories(transactions);
-
+  // console.log("user_sidebar_client: ", user.firstName);
   return (
     <aside className="right-sidebar- no-scrollbar hidden h-screen max-h-screen flex-col border-l border-slate-700 xl:flex w-[355px] xl:overflow-y-scroll">
       <section className="flex flex-col pb-8">
@@ -19,16 +19,16 @@ const RightSidebar = ({
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-blue-500">
-              {user.firstName[0]}
+              {user?.name}
             </span>
           </div>
 
           <div className="profile-details">
-            <h1 className="profile-name-1 text-24 font-semibold text-slate-100">
-              {user.firstName} {user.lastName}
+            <h1 className="profile-name-1 text-24 font-semibold text-blue-400">
+              {user?.firstName} {user?.lastName}
             </h1>
-            <p className="profile-emai-l text-16 font-normal text-slate-300">
-              {user.email || "kareemorbit@gmail.com"}
+            <p className="profile-emai-l text-16 font-normal text-blue-100">
+              {user?.email || user?.email}
             </p>
           </div>
         </div>
@@ -51,7 +51,7 @@ const RightSidebar = ({
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user.firstName} ${user.lastName}`}
+                userName={`${user?.firstName} ${user?.lastName}`}
                 showBalance={false}
               />
             </div>
@@ -60,7 +60,7 @@ const RightSidebar = ({
                 <BankCard
                   key={banks[1].$id}
                   account={banks[1]}
-                  userName={`${user.firstName} ${user.lastName}`}
+                  userName={`${user?.name}`}
                   showBalance={false}
                   className="bg-slate-950"
                 />
